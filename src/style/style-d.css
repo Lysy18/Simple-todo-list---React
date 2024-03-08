@@ -10,4 +10,12 @@
 
 .editTodo {
   background-color: pink;
+}
+
+.todo-row {
+  background-color: greenyellow;
+}
+
+.complete {
+  background-color: red !important;
 }/*# sourceMappingURL=style-d.css.map */

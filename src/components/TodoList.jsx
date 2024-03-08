@@ -13,7 +13,6 @@ const TodoList = () => {
   };
   const completeTodo = (id) => {
     let updatedTodos = todoList.map((todo) => {
-      console.log(todo.id, id);
       if (todo.id === id) {
         todo.isComplete = !todo.isComplete;
       }
@@ -25,20 +24,34 @@ const TodoList = () => {
   const deleteTodo = (id) => {
     let newTodos = [];
     todoList.map((todo) => {
-      console.log();
       if (id !== todo.id) {
-        // newTodos = newTodos.push(oldTodos[i]);
         newTodos = [...newTodos, todo];
-        console.log(newTodos);
       }
     });
-    setTodos(newTodos)
+    setTodos(newTodos);
+  };
+
+  const saveEditTodo = (editTodo, todoList) => {
+    let newTodos = [];
+    todoList.map((todo) => {
+      if (editTodo.id !== todo.id) {
+        newTodos = [...newTodos, todo];
+      } else {
+        newTodos = [...newTodos, { id: editTodo.id, text: editTodo.value }];
+      }
+    });
+    setTodos(newTodos);
   };
   return (
     <div>
       <h1>Todo List</h1>
       <TodoForm onSubmit={addTodo} />
-      <Todo todoList={todoList} completeTodo={completeTodo} deleteTodo={deleteTodo} />
+      <Todo
+        todoList={todoList}
+        completeTodo={completeTodo}
+        deleteTodo={deleteTodo}
+        saveEditTodo={saveEditTodo}
+      />
     </div>
   );
 };
