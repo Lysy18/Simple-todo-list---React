@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.editTodo {
+  background-color: pink;
+}/*# sourceMappingURL=style-d.css.map */
