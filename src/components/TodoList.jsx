@@ -1,9 +1,14 @@
 import { useState } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
+import TodoBtn from "./TodoBtn";
 
 const TodoList = () => {
   const [todoList, setTodos] = useState([]);
+  let [selectedCategory, setSelectedCategory] = useState("work");
+  const handleCategory = (category) => {
+    setSelectedCategory(category);
+  };
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
@@ -45,13 +50,26 @@ const TodoList = () => {
   return (
     <div>
       <h1>Todo List</h1>
-      <TodoForm onSubmit={addTodo} />
+      <ul>
+        <TodoBtn onClick={() => handleCategory("home")}>Home</TodoBtn>
+        <TodoBtn onClick={() => handleCategory("work")}>Work</TodoBtn>
+        <TodoBtn onClick={() => handleCategory("school")}>School</TodoBtn>
+      </ul>
+      <TodoForm onSubmit={addTodo} category={selectedCategory} />
       <Todo
         todoList={todoList}
         completeTodo={completeTodo}
         deleteTodo={deleteTodo}
         saveEditTodo={saveEditTodo}
+        selectedCategory={selectedCategory}
       />
+      {/* <TodoForm onSubmit={addTodo} />
+      <Todo
+        todoList={todoList}
+        completeTodo={completeTodo}
+        deleteTodo={deleteTodo}
+        saveEditTodo={saveEditTodo}
+      /> */}
     </div>
   );
 };
