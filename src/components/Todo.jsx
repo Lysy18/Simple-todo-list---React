@@ -12,12 +12,13 @@ const Todo = ({
   const [edit, setEdit] = useState({
     id: null,
     value: "",
+    category: "",
     todos: [],
   });
 
   const handleSave = () => {
     saveEditTodo(edit, todoList);
-    setEdit({ id: null, value: "" });
+    setEdit({ id: null, value: "", category: "" });
   };
   return todoList.map((todo, index) => (
     <div key={index}>
@@ -33,7 +34,11 @@ const Todo = ({
               <input
                 value={edit.value}
                 onChange={(e) =>
-                  setEdit({ id: todo.id, value: e.currentTarget.value })
+                  setEdit({
+                    id: todo.id,
+                    value: e.currentTarget.value,
+                    category: todo.category,
+                  })
                 }
               />
               <button onClick={() => handleSave()}>Save</button>
@@ -47,7 +52,12 @@ const Todo = ({
             <RiCloseCircleLine onClick={() => deleteTodo(todo.id)} />
             <TiEdit
               onClick={() =>
-                setEdit({ id: todo.id, value: todo.text, todos: todoList })
+                setEdit({
+                  id: todo.id,
+                  value: todo.text,
+                  category: todo.category,
+                  todos: todoList,
+                })
               }
             />
           </div>
