@@ -42,7 +42,14 @@ const TodoList = () => {
       if (editTodo.id !== todo.id) {
         newTodos = [...newTodos, todo];
       } else {
-        newTodos = [...newTodos, { id: editTodo.id, text: editTodo.value }];
+        newTodos = [
+          ...newTodos,
+          {
+            id: editTodo.id,
+            text: editTodo.value,
+            category: editTodo.category,
+          },
+        ];
       }
     });
     setTodos(newTodos);
@@ -63,13 +70,6 @@ const TodoList = () => {
         saveEditTodo={saveEditTodo}
         selectedCategory={selectedCategory}
       />
-      {/* <TodoForm onSubmit={addTodo} />
-      <Todo
-        todoList={todoList}
-        completeTodo={completeTodo}
-        deleteTodo={deleteTodo}
-        saveEditTodo={saveEditTodo}
-      /> */}
     </div>
   );
 };
