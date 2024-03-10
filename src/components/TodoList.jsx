@@ -55,21 +55,33 @@ const TodoList = () => {
     setTodos(newTodos);
   };
   return (
-    <div>
-      <h1>Todo List</h1>
-      <ul>
-        <TodoBtn onClick={() => handleCategory("home")}>Home</TodoBtn>
-        <TodoBtn onClick={() => handleCategory("work")}>Work</TodoBtn>
-        <TodoBtn onClick={() => handleCategory("school")}>School</TodoBtn>
-      </ul>
-      <TodoForm onSubmit={addTodo} category={selectedCategory} />
-      <Todo
-        todoList={todoList}
-        completeTodo={completeTodo}
-        deleteTodo={deleteTodo}
-        saveEditTodo={saveEditTodo}
-        selectedCategory={selectedCategory}
-      />
+    <div className="mainContainer">
+      <div className="mainContainer-category">
+        <ul>
+          <TodoBtn onClick={() => handleCategory("home")}>
+            <i className="fa-solid fa-house"></i>Home
+          </TodoBtn>
+          <TodoBtn onClick={() => handleCategory("work")}>
+            <i className="fa-solid fa-briefcase"></i>Work
+          </TodoBtn>
+          <TodoBtn onClick={() => handleCategory("school")}>
+            <i className="fa-solid fa-book-open"></i>School
+          </TodoBtn>
+        </ul>
+      </div>
+      <div className="mainContainer-todoContainer">
+        <h1>To-Do</h1>
+        <TodoForm onSubmit={addTodo} category={selectedCategory} />
+        <div className="mainContainer-todoContainer-todo">
+          <Todo
+            todoList={todoList}
+            completeTodo={completeTodo}
+            deleteTodo={deleteTodo}
+            saveEditTodo={saveEditTodo}
+            selectedCategory={selectedCategory}
+          />
+        </div>
+      </div>
     </div>
   );
 };

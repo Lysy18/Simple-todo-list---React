@@ -19,21 +19,21 @@ const TodoForm = (props) => {
     setInput("");
   };
   return (
-    <div>
-      <form action="" className="todo-form" onSubmit={handleSubmit}>
+    <div className="todoFormContainer">
+      <form action="" className="addTodo-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Add a todo"
+          placeholder="Write your task"
           value={input}
           name="text"
-          className="todo-input"
+          className="addTodo-input"
           onChange={handleChange}
         />
-        <button className="todo-button">Add todo</button>
+        <button className="addTodo-button">
+          <i className="fa-solid fa-plus"></i>
+          Add Task
+        </button>
       </form>
-      {category == "school" ? <div>school</div> : null}
-      {category == "work" ? <div>work</div> : null}
-      {category == "home" ? <div>home</div> : null}
     </div>
   );
 };
