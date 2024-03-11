@@ -124,11 +124,32 @@ li {
 }
 .todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button:hover {
   background-color: #646464;
+  font-size: 17px;
 }
 .todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button:active {
   background-color: #525252;
 }
+.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button p {
+  transition: 0.3s;
+}
+.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button:active p {
+  font-size: 18px;
+}
 .todo-app .mainContainer-todoContainer-todo {
+  margin: 25px 0 0 15px;
   max-height: 66vh;
   overflow-x: hidden;
+}
+.todo-app .mainContainer-todoContainer-todo .todo-row {
+  background-color: #c9bebe;
+  padding: 10px 5px;
+  margin: 10px 15px 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo-app .mainContainer-todoContainer-todo .todo-row-TextConatiner {
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }/*# sourceMappingURL=style-d.css.map */

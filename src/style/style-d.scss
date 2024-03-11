@@ -134,16 +134,39 @@ li {
             border-radius: 5px;
             &:hover {
               background-color: #646464;
+              font-size: 17px;
             }
+
             &:active {
               background-color: #525252;
+            }
+            & p {
+              transition: 0.3s;
+            }
+            &:active p {
+              font-size: 18px;
             }
           }
         }
       }
       &-todo {
+        margin: 25px 0 0 15px;
+
         max-height: 66vh;
         overflow-x: hidden;
+        .todo-row {
+          background-color: #c9bebe;
+          padding: 10px 5px;
+          margin: 10px 15px 10px 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          &-TextConatiner {
+            width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
       }
     }
   }

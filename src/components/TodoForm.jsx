@@ -31,7 +31,7 @@ const TodoForm = (props) => {
         />
         <button className="addTodo-button">
           <i className="fa-solid fa-plus"></i>
-          Add Task
+          <p>Add Task</p>
         </button>
       </form>
     </div>
