@@ -63,6 +63,7 @@ const Todo = ({
                   todos: todoList,
                 })
               }
+              className={todo.isComplete ? "icons-complete" : ``}
             />
           </div>
         </div>

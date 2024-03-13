@@ -15,14 +15,6 @@
   box-shadow: 0px 0px 23px -3px rgb(134, 134, 150);
 }
 
-.editTodo {
-  background-color: pink;
-}
-
-.complete {
-  background-color: red !important;
-}
-
 li {
   list-style: none;
 }
@@ -90,7 +82,6 @@ li {
 .todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-form {
   margin-top: 10px;
   margin: 20px 0 0 15px;
-  height: 20px;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -137,19 +128,39 @@ li {
 }
 .todo-app .mainContainer-todoContainer-todo {
   margin: 25px 0 0 15px;
-  max-height: 66vh;
+  max-height: calc(67vh - 159px);
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 .todo-app .mainContainer-todoContainer-todo .todo-row {
   background-color: #c9bebe;
-  padding: 10px 5px;
+  padding: 0 5px;
   margin: 10px 15px 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .todo-app .mainContainer-todoContainer-todo .todo-row-TextConatiner {
-  width: 80%;
+  width: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 10px 10px;
+  font-size: 15px;
+}
+.todo-app .mainContainer-todoContainer-todo .icons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-right: 10px;
+}
+.todo-app .mainContainer-todoContainer-todo .icons svg {
+  font-size: 18px;
+}
+.todo-app .mainContainer-todoContainer-todo .icons-complete {
+  display: none;
+  visibility: hidden;
+}
+.todo-app .mainContainer-todoContainer-todo .complete {
+  background-color: #fbdfdf;
+  text-decoration: line-through;
 }/*# sourceMappingURL=style-d.css.map */
