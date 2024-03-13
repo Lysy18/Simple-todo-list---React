@@ -1,0 +1,10 @@
+@media screen and (max-width: 1024px) {
+  #root {
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 11%);
+  }
+}/*# sourceMappingURL=style-m.css.map */
