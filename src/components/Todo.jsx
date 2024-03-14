@@ -30,7 +30,7 @@ const Todo = ({
           key={index}
         >
           {edit.id == todo.id ? (
-            <div>
+            <div className="todo-row">
               <input
                 value={edit.value}
                 onChange={(e) =>
@@ -44,7 +44,11 @@ const Todo = ({
               <button onClick={() => handleSave()}>Save</button>
             </div>
           ) : (
-            <div key={todo.id} onClick={() => completeTodo(todo.id)}>
+            <div
+              key={todo.id}
+              onClick={() => completeTodo(todo.id)}
+              className="todo-row-TextConatiner"
+            >
               {todo.text}
             </div>
           )}
@@ -59,6 +63,7 @@ const Todo = ({
                   todos: todoList,
                 })
               }
+              className={todo.isComplete ? "icons-complete" : ``}
             />
           </div>
         </div>
