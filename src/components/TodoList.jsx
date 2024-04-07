@@ -7,6 +7,7 @@ const TodoList = () => {
   const [todoList, setTodos] = useState([]);
   let [selectedCategory, setSelectedCategory] = useState("work");
   let [categoryArr, setCategoryArr] = useState(["work", "home", "school"]);
+  let [addCategoryPopup, setAddCategoryPopup] = useState(false);
   const handleCategory = (category) => {
     console.log(category.categoryName);
     setSelectedCategory(category.categoryName);
@@ -63,10 +64,13 @@ const TodoList = () => {
   };
 
   return (
-    <div className="mainContainer">
-      <div className="mainContainer-category">
-        <ul>
-          {/* <TodoBtn onClick={() => handleCategory("home")}>
+    <>
+      {addCategoryPopup ? <div className="shadow"></div> : null}
+
+      <div className="mainContainer">
+        <div className="mainContainer-category">
+          <ul>
+            {/* <TodoBtn onClick={() => handleCategory("home")}>
             <i className="fa-solid fa-house"></i>Home
           </TodoBtn>
           <TodoBtn onClick={() => handleCategory("work")}>
@@ -75,33 +79,34 @@ const TodoList = () => {
           <TodoBtn onClick={() => handleCategory("school")}>
             <i className="fa-solid fa-book-open"></i>School
           </TodoBtn> */}
-          {categoryArr.map((categoryName, index) => (
-            <TodoCategoryBtn
-              key={index}
-              onClick={() => handleCategory({ categoryName })}
-            >
-              {/* <i className="fa-solid fa-book-open"></i> */}
-              {categoryName}
-            </TodoCategoryBtn>
-          ))}
-          {/* <li onClick={setIsAddCategory(!isAddCategory)}></li> */}
-        </ul>
-        <AddCategory onAddCategory={handleAddCategory} />
-      </div>
-      <div className="mainContainer-todoContainer">
-        <h1>To-Do</h1>
-        <TodoForm onSubmit={addTodo} category={selectedCategory} />
-        <div className="mainContainer-todoContainer-todo">
-          <Todo
-            todoList={todoList}
-            completeTodo={completeTodo}
-            deleteTodo={deleteTodo}
-            saveEditTodo={saveEditTodo}
-            selectedCategory={selectedCategory}
-          />
+            {categoryArr.map((categoryName, index) => (
+              <TodoCategoryBtn
+                key={index}
+                onClick={() => handleCategory({ categoryName })}
+              >
+                {/* <i className="fa-solid fa-book-open"></i> */}
+                {categoryName}
+              </TodoCategoryBtn>
+            ))}
+            {/* <li onClick={setIsAddCategory(!isAddCategory)}></li> */}
+          </ul>
+          <AddCategory onAddCategory={handleAddCategory} />
+        </div>
+        <div className="mainContainer-todoContainer">
+          <h1>To-Do</h1>
+          <TodoForm onSubmit={addTodo} category={selectedCategory} />
+          <div className="mainContainer-todoContainer-todo">
+            <Todo
+              todoList={todoList}
+              completeTodo={completeTodo}
+              deleteTodo={deleteTodo}
+              saveEditTodo={saveEditTodo}
+              selectedCategory={selectedCategory}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

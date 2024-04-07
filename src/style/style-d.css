@@ -5,7 +5,29 @@
   font-style: normal;
 }
 
-#root {
+body {
+  overflow: hidden;
+}
+
+.shadow {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(134, 134, 150, 0.8);
+  flex-basis: 100%;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+.mainContainer {
   max-width: 1240px;
   background-color: #f1f1f1;
   border-radius: 15px;
@@ -14,16 +36,9 @@
   left: 50%;
   transform: translate(-50%, 11%);
   box-shadow: 0px 0px 23px -3px rgb(134, 134, 150);
-}
-
-li {
-  list-style: none;
-}
-
-.todo-app .mainContainer {
   display: flex;
 }
-.todo-app .mainContainer-category {
+.mainContainer-category {
   padding: 30px 5px 10px 5px;
   width: 25%;
   height: 70vh;
@@ -36,16 +51,16 @@ li {
   flex-direction: column;
   justify-content: space-between;
 }
-.todo-app .mainContainer-category ul {
+.mainContainer-category ul {
   padding: 0;
   margin: 5px 10px;
 }
-.todo-app .mainContainer-category ul li {
+.mainContainer-category ul li {
   display: flex;
   justify-content: center;
   margin: 15px auto;
 }
-.todo-app .mainContainer-category ul li button {
+.mainContainer-category ul li button {
   height: 40px;
   gap: 10px;
   width: 90%;
@@ -56,10 +71,10 @@ li {
   transition: 0.3s;
   cursor: pointer;
 }
-.todo-app .mainContainer-category ul li button:hover {
+.mainContainer-category ul li button:hover {
   background-color: #007bee;
 }
-.todo-app .mainContainer-category ul li button .liChildrenConatainer {
+.mainContainer-category ul li button .liChildrenConatainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,16 +82,16 @@ li {
   font-size: 16px;
   transition: 0.3s;
 }
-.todo-app .mainContainer-category ul li button .liChildrenConatainer:hover {
+.mainContainer-category ul li button .liChildrenConatainer:hover {
   font-size: 17px;
 }
-.todo-app .mainContainer-category .addCategoryBtn {
+.mainContainer-category .addCategoryBtn {
   padding: 0;
   margin: 5px 10px;
   display: flex;
   justify-content: center;
 }
-.todo-app .mainContainer-category .addCategoryBtn button {
+.mainContainer-category .addCategoryBtn button {
   font-size: 15px;
   height: 40px;
   width: 90%;
@@ -87,19 +102,11 @@ li {
   transition: 0.3s;
   cursor: pointer;
 }
-.todo-app .mainContainer-category .addCategoryBtn button:hover {
+.mainContainer-category .addCategoryBtn button:hover {
   background-color: #002bee;
   border: 2px solid #1b1293;
 }
-.todo-app .mainContainer-category .addCategoryPopup {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgb(134, 134, 150);
-}
-.todo-app .mainContainer-category .addCategoryPopup form {
+.mainContainer-category .addCategoryPopup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -108,27 +115,27 @@ li {
   height: 300px;
   background-color: red;
 }
-.todo-app .mainContainer-todoContainer {
+.mainContainer-todoContainer {
   width: 75%;
   padding: 30px 20px;
 }
-.todo-app .mainContainer-todoContainer h1 {
+.mainContainer-todoContainer h1 {
   margin: 15px 10px 0 25px;
   font-size: 32px;
   font-weight: 500;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer {
+.mainContainer-todoContainer .todoFormContainer {
   border-top: 2px solid #777;
   margin-top: 15px;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-form {
+.mainContainer-todoContainer .todoFormContainer .addTodo-form {
   margin-top: 10px;
   margin: 20px 0 0 15px;
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-input {
+.mainContainer-todoContainer .todoFormContainer .addTodo-input {
   height: 20px;
   width: 225px;
   padding: 9px 15px 9px 3px;
@@ -137,11 +144,11 @@ li {
   border-radius: 5px;
   transition: 0.3s;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-input:focus {
+.mainContainer-todoContainer .todoFormContainer .addTodo-input:focus {
   outline: none;
   border: 2px solid #094a9f;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button {
+.mainContainer-todoContainer .todoFormContainer .addTodo-button {
   display: flex;
   gap: 5px;
   align-items: center;
@@ -155,26 +162,26 @@ li {
   transition: 0.3s;
   border-radius: 5px;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button:hover {
+.mainContainer-todoContainer .todoFormContainer .addTodo-button:hover {
   background-color: #646464;
   font-size: 17px;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button:active {
+.mainContainer-todoContainer .todoFormContainer .addTodo-button:active {
   background-color: #525252;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button p {
+.mainContainer-todoContainer .todoFormContainer .addTodo-button p {
   transition: 0.3s;
 }
-.todo-app .mainContainer-todoContainer .todoFormContainer .addTodo-button:active p {
+.mainContainer-todoContainer .todoFormContainer .addTodo-button:active p {
   font-size: 18px;
 }
-.todo-app .mainContainer-todoContainer-todo {
+.mainContainer-todoContainer-todo {
   margin: 25px 0 0 15px;
   max-height: calc(67vh - 159px);
   overflow-x: hidden;
   overflow-y: scroll;
 }
-.todo-app .mainContainer-todoContainer-todo .todo-row {
+.mainContainer-todoContainer-todo .todo-row {
   background-color: #c9bebe;
   padding: 0 5px;
   margin: 10px 15px 10px 0;
@@ -182,27 +189,27 @@ li {
   justify-content: space-between;
   align-items: center;
 }
-.todo-app .mainContainer-todoContainer-todo .todo-row-TextConatiner {
+.mainContainer-todoContainer-todo .todo-row-TextConatiner {
   width: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 10px 10px;
   font-size: 15px;
 }
-.todo-app .mainContainer-todoContainer-todo .icons {
+.mainContainer-todoContainer-todo .icons {
   display: flex;
   flex-direction: row;
   gap: 10px;
   margin-right: 10px;
 }
-.todo-app .mainContainer-todoContainer-todo .icons svg {
+.mainContainer-todoContainer-todo .icons svg {
   font-size: 18px;
 }
-.todo-app .mainContainer-todoContainer-todo .icons-complete {
+.mainContainer-todoContainer-todo .icons-complete {
   display: none;
   visibility: hidden;
 }
-.todo-app .mainContainer-todoContainer-todo .complete {
+.mainContainer-todoContainer-todo .complete {
   background-color: #fbdfdf;
   text-decoration: line-through;
 }/*# sourceMappingURL=style-d.css.map */
