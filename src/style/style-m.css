@@ -7,4 +7,7 @@
     left: 50%;
     transform: translate(-50%, 11%);
   }
+  .todo-app .mainContainer-category {
+    height: 100vh;
+  }
 }/*# sourceMappingURL=style-m.css.map */

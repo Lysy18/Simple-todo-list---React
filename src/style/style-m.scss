@@ -7,4 +7,12 @@
     left: 50%;
     transform: translate(-50%, 11%);
   }
+  .todo-app {
+    .mainContainer {
+      &-category {
+        // max-height: fit-content;
+        height: 100vh;
+      }
+    }
+  }
 }

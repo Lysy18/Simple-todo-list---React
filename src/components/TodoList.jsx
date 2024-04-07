@@ -1,15 +1,18 @@
 import { useState } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import TodoBtn from "./TodoBtn";
-
+import TodoCategoryBtn from "./TodoCategoryBtn";
+import AddCategory from "./AddCategory";
 const TodoList = () => {
   const [todoList, setTodos] = useState([]);
   let [selectedCategory, setSelectedCategory] = useState("work");
+  let [categoryArr, setCategoryArr] = useState(["work", "home", "school"]);
   const handleCategory = (category) => {
-    setSelectedCategory(category);
+    console.log(category.categoryName);
+    setSelectedCategory(category.categoryName);
   };
   const addTodo = (todo) => {
+    console.log(todo);
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
@@ -54,11 +57,16 @@ const TodoList = () => {
     });
     setTodos(newTodos);
   };
+
+  const handleAddCategory = (newCategory) => {
+    setCategoryArr([...categoryArr, newCategory]);
+  };
+
   return (
     <div className="mainContainer">
       <div className="mainContainer-category">
         <ul>
-          <TodoBtn onClick={() => handleCategory("home")}>
+          {/* <TodoBtn onClick={() => handleCategory("home")}>
             <i className="fa-solid fa-house"></i>Home
           </TodoBtn>
           <TodoBtn onClick={() => handleCategory("work")}>
@@ -66,8 +74,19 @@ const TodoList = () => {
           </TodoBtn>
           <TodoBtn onClick={() => handleCategory("school")}>
             <i className="fa-solid fa-book-open"></i>School
-          </TodoBtn>
+          </TodoBtn> */}
+          {categoryArr.map((categoryName, index) => (
+            <TodoCategoryBtn
+              key={index}
+              onClick={() => handleCategory({ categoryName })}
+            >
+              {/* <i className="fa-solid fa-book-open"></i> */}
+              {categoryName}
+            </TodoCategoryBtn>
+          ))}
+          {/* <li onClick={setIsAddCategory(!isAddCategory)}></li> */}
         </ul>
+        <AddCategory onAddCategory={handleAddCategory} />
       </div>
       <div className="mainContainer-todoContainer">
         <h1>To-Do</h1>

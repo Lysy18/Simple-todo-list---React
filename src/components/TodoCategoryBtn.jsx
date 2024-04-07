@@ -1,4 +1,4 @@
-export default function TodoBtn({ children, ...props }) {
+const TodoCategoryBtn = ({ children, ...props }) => {
   return (
     <li>
       <button {...props}>
@@ -6,4 +6,6 @@ export default function TodoBtn({ children, ...props }) {
       </button>
     </li>
   );
-}
+};
+
+export default TodoCategoryBtn;

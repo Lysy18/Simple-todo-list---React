@@ -1,0 +1,42 @@
+import { useState } from "react";
+import PropTypes from "prop-types";
+
+const AddCategory = ({ onAddCategory }) => {
+  let [isAddCategory, setIsAddCategory] = useState(false);
+  let [newCategory, setNewCategory] = useState("");
+
+  const handleChange = (e) => {
+    setNewCategory(e.target.value);
+  };
+
+  const handleSaveAddedCategory = (e) => {
+    e.preventDefault();
+    if (newCategory.trim() !== "") {
+      onAddCategory(newCategory);
+      setNewCategory("");
+    }
+  };
+
+  return (
+    <div>
+      {isAddCategory ? (
+        <button onClick={() => setIsAddCategory((test) => !test)}>
+          Add Category
+        </button>
+      ) : (
+        <div>
+          <form onSubmit={handleSaveAddedCategory}>
+            <input type="text" onChange={handleChange} value={newCategory} />
+            <button type="submit">Add Category</button>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+};
+
+AddCategory.propTypes = {
+  onAddCategory: PropTypes.func.isRequired,
+};
+
+export default AddCategory;
