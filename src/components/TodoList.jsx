@@ -3,10 +3,15 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 import TodoCategoryBtn from "./TodoCategoryBtn";
 import AddCategory from "./AddCategory";
+import AddCategoryPopup from "./AddCategoryPopup";
 const TodoList = () => {
   const [todoList, setTodos] = useState([]);
   let [selectedCategory, setSelectedCategory] = useState("work");
-  let [categoryArr, setCategoryArr] = useState(["work", "home", "school"]);
+  let [categoryArr, setCategoryArr] = useState([
+    "work",
+    "home",
+    "school",
+  ]);
   const handleCategory = (category) => {
     console.log(category.categoryName);
     setSelectedCategory(category.categoryName);
@@ -59,49 +64,72 @@ const TodoList = () => {
   };
 
   const handleAddCategory = (newCategory) => {
+    console.log("he");
     setCategoryArr([...categoryArr, newCategory]);
+  };
+  const [test, setTest] = useState(false);
+
+  const handleTest = () => {
+    setTest((test1) => !test1);
+
+    //setTest(!test);
+    console.log("heh", test);
   };
 
   return (
-    <div className="mainContainer">
-      <div className="mainContainer-category">
-        <ul>
-          {/* <TodoBtn onClick={() => handleCategory("home")}>
+    <>
+      {test ? (
+        <>
+          <AddCategoryPopup
+            onAddCategory={handleAddCategory}
+            // onShadowTest={() => {
+            //   handleTest();
+            // }}
+            onShadowTest={handleTest}
+          />
+        </>
+      ) : null}
+      <div className="mainContainer">
+        <div className="mainContainer-category">
+          {test}
+          <ul>
+            {/* <TodoBtn onClick={() => handleCategory("home")}>
             <i className="fa-solid fa-house"></i>Home
-          </TodoBtn>
-          <TodoBtn onClick={() => handleCategory("work")}>
+            </TodoBtn>
+            <TodoBtn onClick={() => handleCategory("work")}>
             <i className="fa-solid fa-briefcase"></i>Work
-          </TodoBtn>
-          <TodoBtn onClick={() => handleCategory("school")}>
+            </TodoBtn>
+            <TodoBtn onClick={() => handleCategory("school")}>
             <i className="fa-solid fa-book-open"></i>School
           </TodoBtn> */}
-          {categoryArr.map((categoryName, index) => (
-            <TodoCategoryBtn
-              key={index}
-              onClick={() => handleCategory({ categoryName })}
-            >
-              {/* <i className="fa-solid fa-book-open"></i> */}
-              {categoryName}
-            </TodoCategoryBtn>
-          ))}
-          {/* <li onClick={setIsAddCategory(!isAddCategory)}></li> */}
-        </ul>
-        <AddCategory onAddCategory={handleAddCategory} />
-      </div>
-      <div className="mainContainer-todoContainer">
-        <h1>To-Do</h1>
-        <TodoForm onSubmit={addTodo} category={selectedCategory} />
-        <div className="mainContainer-todoContainer-todo">
-          <Todo
-            todoList={todoList}
-            completeTodo={completeTodo}
-            deleteTodo={deleteTodo}
-            saveEditTodo={saveEditTodo}
-            selectedCategory={selectedCategory}
-          />
+            {categoryArr.map((categoryName, index) => (
+              <TodoCategoryBtn
+                key={index}
+                onClick={() => handleCategory({ categoryName })}
+              >
+                {/* <i className="fa-solid fa-book-open"></i> */}
+                {categoryName}
+              </TodoCategoryBtn>
+            ))}
+            {/* <li onClick={setIsAddCategory(!isAddCategory)}></li> */}
+          </ul>
+          {test ? null : <AddCategory onShadowTest={handleTest} />}
+        </div>
+        <div className="mainContainer-todoContainer">
+          <h1>To-Do</h1>
+          <TodoForm onSubmit={addTodo} category={selectedCategory} />
+          <div className="mainContainer-todoContainer-todo">
+            <Todo
+              todoList={todoList}
+              completeTodo={completeTodo}
+              deleteTodo={deleteTodo}
+              saveEditTodo={saveEditTodo}
+              selectedCategory={selectedCategory}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
