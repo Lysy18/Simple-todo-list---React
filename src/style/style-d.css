@@ -103,6 +103,7 @@ li {
   gap: 15px;
   font-size: 16px;
   transition: 0.3s;
+  text-transform: capitalize;
 }
 .mainContainer-category ul li button .liChildrenConatainer:hover {
   font-size: 17px;

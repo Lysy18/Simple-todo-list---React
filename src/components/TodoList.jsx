@@ -7,17 +7,13 @@ import AddCategoryPopup from "./AddCategoryPopup";
 const TodoList = () => {
   const [todoList, setTodos] = useState([]);
   let [selectedCategory, setSelectedCategory] = useState("work");
-  let [categoryArr, setCategoryArr] = useState([
-    "work",
-    "home",
-    "school",
-  ]);
+  let [categoryArr, setCategoryArr] = useState(["work", "home", "school"]);
   const handleCategory = (category) => {
-    console.log(category.categoryName);
+    // console.log(category.categoryName);
     setSelectedCategory(category.categoryName);
   };
   const addTodo = (todo) => {
-    console.log(todo);
+    // console.log(todo);
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
@@ -64,34 +60,27 @@ const TodoList = () => {
   };
 
   const handleAddCategory = (newCategory) => {
-    console.log("he");
+    // console.log("test");
     setCategoryArr([...categoryArr, newCategory]);
   };
-  const [test, setTest] = useState(false);
+  const [addCategoryPopup, setAddCategoryPopup] = useState(false);
 
-  const handleTest = () => {
-    setTest((test1) => !test1);
-
-    //setTest(!test);
-    console.log("heh", test);
+  const handleShadowAddCategoryPopup = () => {
+    setAddCategoryPopup((CategoryPopup) => !CategoryPopup);
   };
 
   return (
     <>
-      {test ? (
+      {addCategoryPopup ? (
         <>
           <AddCategoryPopup
             onAddCategory={handleAddCategory}
-            // onShadowTest={() => {
-            //   handleTest();
-            // }}
-            onShadowTest={handleTest}
+            onShadowAddCategoryPopup={handleShadowAddCategoryPopup}
           />
         </>
       ) : null}
       <div className="mainContainer">
         <div className="mainContainer-category">
-          {test}
           <ul>
             {/* <TodoBtn onClick={() => handleCategory("home")}>
             <i className="fa-solid fa-house"></i>Home
@@ -113,7 +102,11 @@ const TodoList = () => {
             ))}
             {/* <li onClick={setIsAddCategory(!isAddCategory)}></li> */}
           </ul>
-          {test ? null : <AddCategory onShadowTest={handleTest} />}
+          {addCategoryPopup ? null : (
+            <AddCategory
+              onShadowAddCategoryPopup={handleShadowAddCategoryPopup}
+            />
+          )}
         </div>
         <div className="mainContainer-todoContainer">
           <h1>To-Do</h1>

@@ -1,14 +1,11 @@
-const AddCategory = ({ onShadowTest }) => {
-
+const AddCategory = ({ onShadowAddCategoryPopup }) => {
   return (
     <>
       <div className="addCategoryBtn">
-        <button onClick={onShadowTest}>Add Category</button>
+        <button onClick={onShadowAddCategoryPopup}>Add Category</button>
       </div>
     </>
   );
 };
-
-
 
 export default AddCategory;

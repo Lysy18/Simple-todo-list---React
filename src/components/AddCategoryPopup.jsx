@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-const AddCategoryPopup = ({ onAddCategory, onShadowTest }) => {
+const AddCategoryPopup = ({ onAddCategory, onShadowAddCategoryPopup }) => {
   // let [isAddCategory, setIsAddCategory] = useState(true);
   let [newCategory, setNewCategory] = useState("");
   const handleChange = (e) => {
@@ -12,13 +12,16 @@ const AddCategoryPopup = ({ onAddCategory, onShadowTest }) => {
       onAddCategory(newCategory);
       setNewCategory("");
       // setIsAddCategory(!isAddCategory);
-      onShadowTest();
+      onShadowAddCategoryPopup();
     }
   };
   return (
     <div className="shadow">
       <div className="addCategoryPopup">
-        <div className="addCategoryPopup-close" onClick={onShadowTest}>
+        <div
+          className="addCategoryPopup-close"
+          onClick={onShadowAddCategoryPopup}
+        >
           <i className="fa-solid fa-x"></i>
         </div>
         <form onSubmit={handleSaveAddedCategory}>
