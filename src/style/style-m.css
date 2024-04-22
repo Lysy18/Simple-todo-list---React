@@ -5,9 +5,32 @@
     width: 100vw;
     position: relative;
     left: 50%;
-    transform: translate(-50%, 11%);
+    transform: translate(-50%, 0%);
   }
-  .todo-app .mainContainer-category {
+  .mainContainer-category {
+    max-height: 96vh;
     height: 100vh;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .mainContainer-todoContainer {
+    max-height: 96vh;
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 824px) {
+  .settingsMobile {
+    display: none;
+  }
+  .mainContainer-category {
+    max-height: 96vh;
+    height: 100vh;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  .mainContainer-todoContainer {
+    max-height: 96vh;
+    height: 100vh;
+    width: 100vw;
   }
 }/*# sourceMappingURL=style-m.css.map */

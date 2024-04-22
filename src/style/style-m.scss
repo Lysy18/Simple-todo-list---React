@@ -5,14 +5,35 @@
     width: 100vw;
     position: relative;
     left: 50%;
-    transform: translate(-50%, 11%);
+    transform: translate(-50%, 0%);
+    &-category {
+      max-height: 96vh;
+      height: 100vh;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    &-todoContainer {
+      max-height: 96vh;
+      height: 100vh;
+    }
   }
-  .todo-app {
-    .mainContainer {
-      &-category {
-        // max-height: fit-content;
-        height: 100vh;
-      }
+}
+
+@media screen and (max-width: 824px) {
+  .settingsMobile {
+    display: none;
+  }
+  .mainContainer {
+    &-category {
+      max-height: 96vh;
+      height: 100vh;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    &-todoContainer {
+      max-height: 96vh;
+      height: 100vh;
+      width: 100vw;
     }
   }
 }

@@ -7,7 +7,14 @@ import AddCategoryPopup from "./AddCategoryPopup";
 const TodoList = () => {
   const [todoList, setTodos] = useState([]);
   let [selectedCategory, setSelectedCategory] = useState("work");
-  let [categoryArr, setCategoryArr] = useState(["work", "home", "school"]);
+  let [categoryArr, setCategoryArr] = useState([
+    ["fa-solid fa-briefcase", "work"],
+    ["fa-solid fa-book-open", "school"],
+    ["fa-solid fa-house", "home"],
+  ]);
+
+  const [addCategoryPopup, setAddCategoryPopup] = useState(false);
+  // const [settingsHiden, setSettingsHiden] = useState(false);
   const handleCategory = (category) => {
     // console.log(category.categoryName);
     setSelectedCategory(category.categoryName);
@@ -59,16 +66,14 @@ const TodoList = () => {
     setTodos(newTodos);
   };
 
-  const handleAddCategory = (newCategory) => {
-    // console.log("test");
-    setCategoryArr([...categoryArr, newCategory]);
+  const handleAddCategory = (newCategoryImage, newCategory) => {
+    console.log("test", newCategory, newCategoryImage);
+    setCategoryArr([...categoryArr, [newCategoryImage, newCategory]]);
   };
-  const [addCategoryPopup, setAddCategoryPopup] = useState(false);
 
   const handleShadowAddCategoryPopup = () => {
     setAddCategoryPopup((CategoryPopup) => !CategoryPopup);
   };
-
   return (
     <>
       {addCategoryPopup ? (
@@ -80,23 +85,13 @@ const TodoList = () => {
         </>
       ) : null}
       <div className="mainContainer">
-        <div className="mainContainer-category">
+        <div className="mainContainer-category settingsMobile">
           <ul>
-            {/* <TodoBtn onClick={() => handleCategory("home")}>
-            <i className="fa-solid fa-house"></i>Home
-            </TodoBtn>
-            <TodoBtn onClick={() => handleCategory("work")}>
-            <i className="fa-solid fa-briefcase"></i>Work
-            </TodoBtn>
-            <TodoBtn onClick={() => handleCategory("school")}>
-            <i className="fa-solid fa-book-open"></i>School
-          </TodoBtn> */}
             {categoryArr.map((categoryName, index) => (
               <TodoCategoryBtn
                 key={index}
                 onClick={() => handleCategory({ categoryName })}
               >
-                {/* <i className="fa-solid fa-book-open"></i> */}
                 {categoryName}
               </TodoCategoryBtn>
             ))}

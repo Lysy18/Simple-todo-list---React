@@ -35,8 +35,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 330px;
+  width: 450px;
+  height: 230px;
   background-color: #f1f1f1;
   border-radius: 15px;
   padding: 15px 20px;
@@ -44,10 +44,80 @@ body {
   &-close {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 12px;
+    cursor: pointer;
+    i {
+      transition: 0.3s;
+      color: #757575;
+    }
+    :hover {
+      color: #020202;
+    }
   }
 
   form {
+    margin-top: 10px;
+    .categoryInput {
+      height: 20px;
+      width: 225px;
+      padding: 9px 15px 9px 3px;
+      font-size: 16px;
+      border: 2px solid #007de3;
+      border-radius: 5px;
+      transition: 0.3s;
+      margin-right: 15px;
+      &:focus {
+        outline: none;
+        border: 2px solid #094a9f;
+      }
+    }
+
+    .categoryButton {
+      // display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+      width: 125px;
+      font-size: 16px;
+      background-color: #757575;
+      color: #f0f0f0;
+      border: none;
+      transition: 0.3s;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: #646464;
+      }
+
+      &:active {
+        background-color: #525252;
+      }
+    }
+    .categoryImg-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+    }
+    .categoryImg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #d0d0d0;
+      border-radius: 5px;
+      border: 2px solid #868686;
+      width: 20px;
+      height: 20px;
+      padding: 8px;
+      margin: 5px;
+      // flex-direction: column;
+    }
+    .categoryImg-active {
+      background-color: #909090;
+      border: 2px solid #030403;
+    }
   }
 }
 
@@ -92,6 +162,9 @@ li {
         margin: 15px auto;
 
         button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           height: 40px;
           gap: 10px;
           width: 90%;
