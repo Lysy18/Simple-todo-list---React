@@ -127,6 +127,10 @@ li {
   box-shadow: 0px 0px 23px -3px rgb(134, 134, 150);
   display: flex;
 }
+.mainContainer .nav-open {
+  display: none;
+  visibility: hidden;
+}
 .mainContainer-category {
   padding: 30px 5px 10px 5px;
   width: 25%;
@@ -229,6 +233,15 @@ li {
   border: 2px solid #007de3;
   border-radius: 5px;
   transition: 0.3s;
+}
+.mainContainer-todoContainer .todoFormContainer .addTodo-input-empty {
+  border: 2px solid red;
+}
+.mainContainer-todoContainer .todoFormContainer .addTodo-input-empty::-moz-placeholder {
+  color: red;
+}
+.mainContainer-todoContainer .todoFormContainer .addTodo-input-empty::placeholder {
+  color: red;
 }
 .mainContainer-todoContainer .todoFormContainer .addTodo-input:focus {
   outline: none;

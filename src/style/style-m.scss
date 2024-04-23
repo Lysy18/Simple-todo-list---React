@@ -23,17 +23,36 @@
   .settingsMobile {
     display: none;
   }
+
   .mainContainer {
+    .nav-open {
+      display: block;
+      visibility: visible;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
     &-category {
       max-height: 96vh;
       height: 100vh;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
+      .addCategoryBtn {
+        margin: 5px 10px 20px 10px;
+      }
     }
     &-todoContainer {
       max-height: 96vh;
       height: 100vh;
       width: 100vw;
+    }
+    .test {
+      display: flex;
+      visibility: visible;
+      width: 100vw;
+      height: 100vh;
     }
   }
 }

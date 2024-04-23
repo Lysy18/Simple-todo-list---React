@@ -74,6 +74,13 @@ const TodoList = () => {
   const handleShadowAddCategoryPopup = () => {
     setAddCategoryPopup((CategoryPopup) => !CategoryPopup);
   };
+  const testf = () => {
+    let tt = document.querySelector(".settingsMobile");
+    let tt1 = document.querySelector(".mainContainer-todoContainer");
+    tt.classList.toggle("test");
+    tt1.classList.toggle("settingsMobile");
+  };
+
   return (
     <>
       {addCategoryPopup ? (
@@ -84,7 +91,11 @@ const TodoList = () => {
           />
         </>
       ) : null}
+
       <div className="mainContainer">
+        <div className="nav-open" onClick={testf}>
+          <i className="fa-solid fa-bars"></i>
+        </div>
         <div className="mainContainer-category settingsMobile">
           <ul>
             {categoryArr.map((categoryName, index) => (

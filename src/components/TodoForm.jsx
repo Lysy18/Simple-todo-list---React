@@ -11,6 +11,14 @@ const TodoForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setCategory(props.category);
+    let addTaskInput = document.querySelector(".addTodo-input");
+    if (addTaskInput.value == "") {
+      addTaskInput.classList.add("addTodo-input-empty");
+    } else {
+      if (addTaskInput.classList.contains("addTodo-input-empty")) {
+        addTaskInput.classList.remove("addTodo-input-empty");
+      }
+    }
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,
